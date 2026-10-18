@@ -4,6 +4,7 @@ export type NavLink = {
 };
 
 export type SocialMediaLink = {
+	iconName?: string;
 	platform: string;
 	username: string;
 	url: string;

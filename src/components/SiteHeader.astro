@@ -4,7 +4,7 @@ import ThemeSwitcher from "@components/ThemeSwitcher.astro";
 
 <header class="site-header">
   <nav>
-    <a href="/" class="site-header__nav-logo">
+    <a href="/" class="nav-logo">
       Temploot
     </a>
     <ul class="site-header__nav-list">
@@ -26,28 +26,27 @@ import ThemeSwitcher from "@components/ThemeSwitcher.astro";
         max-width: var(--max-container-width);
         margin-inline: auto;
         display: flex;
-        gap: var(--space-2xs) var(--space-m);
+        gap: var(--space-2xs) var(--space-m-l);
         place-items: center;
       }
 
       > nav > ul {
-        font-size: var(--fs--1);
         display: flex;
         flex-wrap: wrap;
         align-items: center;
         list-style-type: none;
         padding: 0;
         margin: 0;
-        gap: var(--space-xs); 
+        gap: var(--space-xs-s); 
       }
       
+      .nav-logo {
+        font-size: var(--fs-1);
+      }
+
       .theme-switcher {
         margin-inline-start: auto
       }
-    }
-
-    .site-header__nav-logo {
-      font-size: var(--fs-0);
     }
 
     @container site-header (width < 360px) {
@@ -55,7 +54,7 @@ import ThemeSwitcher from "@components/ThemeSwitcher.astro";
 
         > nav {
           flex-wrap: wrap;
-          gap: var(--space-2xs) var(--space-zs);
+          gap: var(--space-2xs) var(--space-xs-s);
         }
 
         > nav > ul {

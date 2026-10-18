@@ -1,0 +1,49 @@
+---
+import { SOCIAlS } from "@utils/consts";
+import { Icon } from "astro-icon/components";
+---
+
+<footer class="site-footer">
+  <nav>
+    <ul class="site-footer__socials">
+      {SOCIAlS.map(social =>
+        <li>
+          <a href={social.url}>
+            {social.iconName && <Icon name={social.iconName}/>}
+            {social.platform}
+          </a>
+        </li>
+      )}
+    </ul>
+  </nav>
+</footer>
+
+<style is:global>
+  @layer components {  
+
+    .site-footer {
+      padding: var(--space-s) var(--space-s-l);
+      
+      nav {
+        max-width: var(--max-container-width);
+        margin-inline: auto;
+      }
+
+      nav > ul {
+        padding: 0;
+        list-style-type: none;
+      }
+    }
+
+    .site-footer__socials {
+      a {
+
+        >[data-icon] {
+          margin-inline-end: var(--space-2xs);
+          vertical-align: top;
+          height: 1.25em;
+        }
+      }
+    }
+  }
+</style>

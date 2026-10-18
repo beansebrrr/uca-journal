@@ -8,7 +8,8 @@ body {
 
 /* External Links */
 
-a:not([class])[href^="http"]:not(:has(img))::after {
+a:not([class])[href^="http"]:not(:has(img), :has(svg))::after,
+a.a--external-link::after {
 	display: inline-block;
 	content: "";
 	background-color: currentColor;
