@@ -1,5 +1,5 @@
 :root {
-	font-family: sans-serif;
+	font-family: var(--ff-sans);
 }
 
 body {
@@ -9,7 +9,7 @@ body {
 /* External Links */
 
 a:not([class])[href^="http"]:not(:has(img), :has(svg))::after,
-a.a--external-link::after {
+a.anchor--external::after {
 	display: inline-block;
 	content: "";
 	background-color: currentColor;
@@ -17,4 +17,40 @@ a.a--external-link::after {
 	height: 0.85em;
 	mask: url(../assets/icons/arrow-up-right.svg) no-repeat;
 	vertical-align: baseline;
+}
+
+/* Keyboard input tag */
+
+kbd:not(:has(kbd)),
+.keyboard-input {
+	font-size: 0.85em;
+	display: inline-block;
+	line-height: 1;
+	padding: 0.25em 0.5em;
+	margin-inline: 0.1em;
+	transform: translateY(-2px);
+	background-color: var(--clr-surface-elevated);
+	border-radius: 0.2em;
+	border: var(--clr-outline) solid 2px;
+	border-bottom-width: 4px;
+
+	&:active {
+		border-bottom-width: 2px;
+		transform: translateY(0);
+		background-color: var(--clr-surface);
+	}
+}
+
+/* Button */
+
+button:not([class]),
+.btn {
+	display: inline-block;
+	background-color: var(--clr-surface-container);
+	border-radius: 0.4em;
+
+	&:active {
+		background-color: color-mix(var(--clr-surface-container), currentColor 10%);
+		border: none;
+	}
 }

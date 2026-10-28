@@ -1,32 +1,29 @@
-/* || UTOPIA CSS */
-
-@import "_utopia.postcss";
-
 /* || COLORS */
 
 :root {
 	--clr-white: #fff;
-	--clr-neutral-50: oklch(98.5% 0 0);
-	--clr-neutral-100: oklch(97% 0 0);
-	--clr-neutral-200: oklch(92.2% 0 0);
-	--clr-neutral-300: oklch(87% 0 0);
-	--clr-neutral-400: oklch(70.8% 0 0);
-	--clr-neutral-500: oklch(55.6% 0 0);
-	--clr-neutral-600: oklch(43.9% 0 0);
-	--clr-neutral-700: oklch(37.1% 0 0);
-	--clr-neutral-800: oklch(26.9% 0 0);
-	--clr-neutral-900: oklch(20.5% 0 0);
-	--clr-neutral-950: oklch(14.5% 0 0);
+	--clr-neutral-50: oklch(98.5% 0 0deg);
+	--clr-neutral-100: oklch(97% 0 0deg);
+	--clr-neutral-200: oklch(92.2% 0 0deg);
+	--clr-neutral-300: oklch(87% 0 0deg);
+	--clr-neutral-400: oklch(70.8% 0 0deg);
+	--clr-neutral-500: oklch(55.6% 0 0deg);
+	--clr-neutral-600: oklch(43.9% 0 0deg);
+	--clr-neutral-700: oklch(37.1% 0 0deg);
+	--clr-neutral-800: oklch(26.9% 0 0deg);
+	--clr-neutral-900: oklch(20.5% 0 0deg);
+	--clr-neutral-950: oklch(14.5% 0 0deg);
 	--clr-black: #000;
+	--clr-yellow: oklch(80% 0.18 73deg);
 }
 
 /* || SEMANTIC COLOR VARIABLES */
 
 :root {
 	/* Text colors */
-	--clr-text: light-dark(var(--clr-neutral-900), var(--clr-neutral-100));
+	--clr-text: light-dark(var(--clr-neutral-800), var(--clr-neutral-100));
 	--clr-text-secondary: light-dark(
-		var(--clr-neutral-700),
+		var(--clr-neutral-600),
 		var(--clr-neutral-300)
 	);
 
@@ -34,10 +31,34 @@
 	--clr-surface: light-dark(var(--clr-neutral-100), var(--clr-neutral-900));
 	--clr-surface-recessed: light-dark(var(--clr-neutral-200), var(--clr-black));
 	--clr-surface-elevated: light-dark(var(--clr-white), var(--clr-neutral-800));
+	--clr-outline: light-dark(var(--clr-neutral-300), var(--clr-neutral-700));
+	--clr-surface-container: light-dark(
+		var(--clr-neutral-200),
+		var(--clr-neutral-800)
+	);
 }
 
-/* ||  */
+/* || FONTS */
 
 :root {
-	--max-container-width: 1240px;
+	--ff-sans: sans-serif;
+	--ff-serif: serif;
+	--ff-mono: mono;
+}
+
+/* || BREAKPOINTS */
+
+:root {
+	--bp-small: 360px;
+	--bp-medium: 768px;
+	--bp-large: 1240px;
+}
+
+/* || UTILITY VARIABLES */
+
+:root {
+	--wrapper-pad-inline: max(
+		var(--space-s-l),
+		calc((100% - var(--bp-large)) / 2)
+	);
 }

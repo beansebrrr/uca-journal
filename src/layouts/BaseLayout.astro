@@ -1,8 +1,7 @@
 ---
-import "@styles/main.css";
 import { SITE } from "@utils/consts";
 import { SEO } from "astro-seo";
-
+import "@styles/main.css";
 
 interface Props {
 	pageTitle?: string
@@ -24,6 +23,9 @@ const { pageTitle, description } = Astro.props;
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{pageTitle || SITE.name}</title>
+		<style is:inline>
+			@layer variables, reset, themes, animations, base, components;
+		</style>
 	</head>
 	<body>
     <slot />

@@ -1,48 +1,74 @@
 ---
 import { SOCIAlS } from "@utils/consts";
+import type { NavLink } from "@utils/types";
 import { Icon } from "astro-icon/components";
+
+const metaLinks: NavLink[] = [
+  {
+    text: "About",
+    url: "/about"
+  },
+  {
+    text: "Work",
+    url: "/work"
+  },
+  {
+    text: "Contact",
+    url: "/contact"
+  },
+]
 ---
 
 <footer class="site-footer">
-  <nav>
-    <ul class="site-footer__socials">
-      {SOCIAlS.map(social =>
-        <li>
-          <a href={social.url}>
-            {social.iconName && <Icon name={social.iconName}/>}
-            {social.platform}
-          </a>
-        </li>
-      )}
-    </ul>
-  </nav>
+  <div class="wrapper">
+    <nav>
+      <div class="site-footer__meta">
+        <h4>Links</h4>
+        <ul>
+          {metaLinks.map(link =>
+            <li><a href={link.url}>{link.text}</a></li>
+          )}
+        </ul>
+      </div>
+      <div class="site-footer__socials">
+        <ul>
+          {SOCIAlS.map(social =>
+            <li>
+              <a href={social.url}>
+                {social.iconName && <Icon name={social.iconName}/>}
+                {social.platform}
+              </a>
+            </li>
+          )}
+        </ul>
+      </div>
+    </nav>
+  </div>
 </footer>
 
 <style is:global>
   @layer components {  
 
     .site-footer {
-      padding: var(--space-s) var(--space-s-l);
-      
-      nav {
-        max-width: var(--max-container-width);
-        margin-inline: auto;
-      }
+      padding:
+        var(--space-s)
+        max(var(--space-s-l), calc((100% - var(--max-wrapper-width)) / 2));
 
-      nav > ul {
-        padding: 0;
+      nav ul {
         list-style-type: none;
+        padding: 0;
+
+        > li + li {
+          margin-block-start: 0.25em;
+        }
       }
     }
 
     .site-footer__socials {
-      a {
-
-        >[data-icon] {
-          margin-inline-end: var(--space-2xs);
-          vertical-align: top;
-          height: 1.25em;
-        }
+      a > [data-icon] {
+        margin-inline-end: var(--space-2xs);
+        vertical-align: top;
+        height: 1.25em;
       }
     }
   }
