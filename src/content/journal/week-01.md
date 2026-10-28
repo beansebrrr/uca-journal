@@ -1,6 +1,5 @@
 ---
-title: Week 1
-description: Python basics and all that fuss
+title: Python Basics and all that Fuss
 pubDate: 2026-10-17
 week: 1
 ---

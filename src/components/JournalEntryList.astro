@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 
-const journalEntries = await getCollection("journal");
+const journalEntries = await getCollection("journal", entry => !entry.data.draft);
 
 import { format } from "date-fns"
 
@@ -11,9 +11,9 @@ journalEntries.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(
 <ul class="journal-entries">
   {journalEntries.map(post => 
     <li>
-      <article class="journal-post">
+      <article class="journal-entry">
         <p class="timestamp">Week {post.data.week} | <time datetime={post.data.pubDate.toLocaleDateString()}>{format(post.data.pubDate, "MMM dd, y")}</time></p>
-        <h3 class="journal-post__title">
+        <h3 class="journal-entry__title">
           <a href={`/journal/${post.id}`}>{post.data.title}</a>
         </h3>
       </article>
@@ -32,14 +32,14 @@ journalEntries.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(
       }
     }
 
-    .journal-post {
+    .journal-entry {
       padding: var(--space-xs) var(--space-s-m);
-      border: var(--clr-neutral-400) solid 1.5px;
+      border: var(--clr-neutral-300) solid 1.5px;
       position: relative;
       isolation: isolate;
       transition: border 100ms ease;
 
-      .journal-post__title {
+      .journal-entry__title {
         font-size: var(--fs-0);
       }
   
@@ -50,7 +50,7 @@ journalEntries.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(
       }
       
       &:hover {
-        border-color: var(--clr-neutral-600);
+        border-color: var(--clr-neutral-800);
       }
       
       &:not(:hover) {
@@ -63,7 +63,7 @@ journalEntries.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(
     }
 
 
-    .journal-post__title > a {
+    .journal-entry__title > a {
       color: inherit;
       text-decoration: inherit;
 

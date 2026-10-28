@@ -2,6 +2,11 @@
 	font-family: var(--ff-sans);
 }
 
+::selection {
+	background-color: oklch(0.9365 0.187 123.25 / 0.75);
+	color: var(--clr-text);
+}
+
 body {
 	font-size: var(--fs-0);
 }

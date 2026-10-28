@@ -1,8 +1,9 @@
 ---
 import { getCollection, render } from 'astro:content';
-import HeaderedLayout from '@layouts/HeaderedLayout.astro';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import { format } from "date-fns";
 export async function getStaticPaths() {
-  const journal = await getCollection('journal');
+  const journal = await getCollection('journal', entry => !entry.data.draft);
   return journal.map(post => ({
     params: { id: post.id },
     props: { post },
@@ -12,9 +13,49 @@ const { post } = Astro.props;
 const { Content } = await render(post);
 ---
 
-<HeaderedLayout>
-  <article>
-    <h1>{post.data.title}</h1>
-    <Content />
-  </article>
-</HeaderedLayout>
+<BaseLayout>
+  <nav class="journal-nav">
+    <a href="/">&leftarrow; Go home</a>
+  </nav>
+  <main class="journal-article">
+    <article>
+      <header>
+        <p class="timestamp">Week {post.data.week} | <time datetime={post.data.pubDate.toLocaleDateString()}>{format(post.data.pubDate, "MMM dd, y")}</time></p>
+        <h1>{post.data.title}</h1>
+      </header>
+      <Content />
+    </article>
+  </main>
+</BaseLayout>
+
+
+<style is:global>
+  @layer base {
+    .journal-nav {
+      a {
+        text-transform: uppercase;
+        font-size: var(--fs--1);
+      }
+    }
+
+    .journal-article {
+
+      header {
+        margin-block-end: var(--space-l-xl);
+      }
+
+      header h1 {
+        font-family: var(--ff-display);
+        text-transform: uppercase;
+        letter-spacing: 2%;
+        font-size: var(--fs-4);
+      }
+
+      .timestamp {
+        font-size: var(--fs--1);
+        color: var(--clr-text-secondary);
+        text-transform: uppercase;
+      }
+    }
+  }
+</style>
