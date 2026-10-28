@@ -2,6 +2,7 @@
 import { SITE } from "@utils/consts";
 import { SEO } from "astro-seo";
 import "@styles/main.css";
+import { Font } from "astro:assets";
 
 interface Props {
 	pageTitle?: string
@@ -26,6 +27,7 @@ const { pageTitle, description } = Astro.props;
 		<style is:inline>
 			@layer variables, reset, themes, animations, base, components;
 		</style>
+		<Font cssVariable="--font-boldonse" preload/>
 	</head>
 	<body>
     <slot />
@@ -33,18 +35,7 @@ const { pageTitle, description } = Astro.props;
 </html>
 
 <script>
-	import { getTheme, setTheme } from "@utils/switch-theme";
-	import type { Theme } from "@utils/types";
+	import { setTheme } from "@utils/switch-theme";
 
-	// InitiLalizes the theme on page load
-	const theme = getTheme() as Theme || null
-	if (theme !== null) {
-		setTheme(theme)
-	} else {
-		setTheme(
-			window.matchMedia?.("(prefers-color-scheme: dark)").matches
-				? "dark"
-				: "light"
-		)
-	}
+	setTheme("light")
 </script>

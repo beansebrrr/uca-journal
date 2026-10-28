@@ -1,0 +1,20 @@
+---
+import { getCollection, render } from 'astro:content';
+import HeaderedLayout from '@layouts/HeaderedLayout.astro';
+export async function getStaticPaths() {
+  const journal = await getCollection('journal');
+  return journal.map(post => ({
+    params: { id: post.id },
+    props: { post },
+  }));
+}
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<HeaderedLayout>
+  <article>
+    <h1>{post.data.title}</h1>
+    <Content />
+  </article>
+</HeaderedLayout>

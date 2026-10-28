@@ -1,0 +1,82 @@
+---
+import { getCollection } from 'astro:content';
+
+const journalEntries = await getCollection("journal");
+
+import { format } from "date-fns"
+
+journalEntries.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+---
+
+<ul class="journal-entries">
+  {journalEntries.map(post => 
+    <li>
+      <article class="journal-post">
+        <p class="timestamp">Week {post.data.week} | <time datetime={post.data.pubDate.toLocaleDateString()}>{format(post.data.pubDate, "MMM dd, y")}</time></p>
+        <h3 class="journal-post__title">
+          <a href={`/journal/${post.id}`}>{post.data.title}</a>
+        </h3>
+      </article>
+    </li>
+  )}
+</ul>
+
+<style is:global>
+  @layer components {
+    .journal-entries {
+      list-style-type: none;
+      padding: 0;
+
+      > li + li {
+        margin-block-start: var(--space-2xs);
+      }
+    }
+
+    .journal-post {
+      padding: var(--space-xs) var(--space-s-m);
+      border: var(--clr-neutral-400) solid 1.5px;
+      position: relative;
+      isolation: isolate;
+      transition: border 100ms ease;
+
+      .journal-post__title {
+        font-size: var(--fs-0);
+      }
+  
+      .timestamp {
+        font-size: var(--fs--2);
+        color: var(--clr-text-secondary);
+        text-transform: uppercase;
+      }
+      
+      &:hover {
+        border-color: var(--clr-neutral-600);
+      }
+      
+      &:not(:hover) {
+        transition-duration: 1s;
+      }
+
+      &:has(a:focus-visible) {
+        outline: solid;
+      }
+    }
+
+
+    .journal-post__title > a {
+      color: inherit;
+      text-decoration: inherit;
+
+      &:focus-visible {
+        outline: none;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+      }
+    }
+  }
+</style>
+

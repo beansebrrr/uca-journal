@@ -1,8 +1,9 @@
 import type { SocialMediaLink } from "@utils/types";
 
 export const SITE = {
-	name: "Temploot",
-	description: "A starter template for my websites",
+	name: "UCA Journal",
+	description:
+		"A journal website which I write about my learning journey and my findings during my time in the University for the Creative Arts",
 	author: {
 		name: "Vince",
 		email: "vincemcaballero@gmail.com",

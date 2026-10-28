@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig } from "astro/config";
+import { defineConfig, fontProviders } from "astro/config";
 
 import icon from "astro-icon";
 
@@ -9,5 +9,12 @@ export default defineConfig({
 		icon({
 			iconDir: "src/assets/icons",
 		}),
+	],
+	fonts: [
+		{
+			provider: fontProviders.fontsource(),
+			name: "Boldonse",
+			cssVariable: "--font-boldonse",
+		},
 	],
 });

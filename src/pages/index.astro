@@ -1,10 +1,40 @@
 ---
-import SiteFooter from "@components/SiteFooter.astro";
-import SiteHeader from "@components/SiteHeader.astro"
+import Journal from "@components/JournalEntryList.astro"
 import BaseLayout from "@layouts/BaseLayout.astro";
 ---
 
 <BaseLayout>
-  <SiteHeader />
-  <SiteFooter />
+  <header class="homepage-header">
+    <div class="homepage__headline">
+      <h1>Beanse's journal</h1>
+      <p>
+        My (and now your) weekly digest of research and development
+      </p>
+    </div>
+  </header>
+  <main class="homepage">
+    <Journal />
+  </main>
 </BaseLayout>
+
+<style is:global>
+  @layer base {
+    .homepage-header {
+      margin-block: var(--space-xs) var(--space-m);
+    }
+
+    .homepage__headline {
+
+      h1 {
+        font-family: var(--ff-display);
+        text-transform: uppercase;
+        letter-spacing: 2%;
+        font-size: var(--fs-5);
+      }
+
+      p {
+        font-size: var(--fs--1);
+      }
+    }
+  }
+</style>

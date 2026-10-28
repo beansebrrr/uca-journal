@@ -1,25 +1,15 @@
----
-import ThemeSwitcher from "@components/ThemeSwitcher.astro";
----
-
 <header class="site-header">
   <nav>
     <a href="/" class="nav-logo">
-      Temploot
+      Beanjournal
     </a>
-    <ul class="site-header__nav-list">
-      <li><a href="/about">About</a></li>
-      <li><a href="/work">Work</a></li>
-      <li><a href="/contact">Contact</a></li>
-    </ul>
-    <ThemeSwitcher />
   </nav>
 </header>
 
 <style is:global>
   @layer components {
     .site-header {
-      padding: var(--space-s) var(--space-s-l);
+      padding: var(--space-s) var(--wrapper-pad-inline);
       container: site-header / inline-size;
 
       > nav {
@@ -29,7 +19,7 @@ import ThemeSwitcher from "@components/ThemeSwitcher.astro";
         gap: var(--space-2xs) var(--space-m-l);
         place-items: center;
       }
-
+      
       > nav > ul {
         display: flex;
         flex-wrap: wrap;
@@ -37,11 +27,7 @@ import ThemeSwitcher from "@components/ThemeSwitcher.astro";
         list-style-type: none;
         padding: 0;
         margin: 0;
-        gap: var(--space-xs-s); 
-      }
-      
-      .nav-logo {
-        font-size: var(--fs-1);
+        gap: var(--space-xs-s);
       }
 
       .theme-switcher {

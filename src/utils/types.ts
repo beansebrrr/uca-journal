@@ -1,6 +1,6 @@
 export type NavLink = {
-	text: string;
-	url: string;
+	label: string;
+	href: string;
 };
 
 export type SocialMediaLink = {

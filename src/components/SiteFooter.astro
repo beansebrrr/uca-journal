@@ -1,48 +1,26 @@
 ---
-import { SOCIAlS } from "@utils/consts";
-import type { NavLink } from "@utils/types";
+import { SITE, SOCIAlS } from "@utils/consts";
 import { Icon } from "astro-icon/components";
 
-const metaLinks: NavLink[] = [
-  {
-    text: "About",
-    url: "/about"
-  },
-  {
-    text: "Work",
-    url: "/work"
-  },
-  {
-    text: "Contact",
-    url: "/contact"
-  },
-]
 ---
 
 <footer class="site-footer">
-  <div class="wrapper">
-    <nav>
-      <div class="site-footer__meta">
-        <h4>Links</h4>
-        <ul>
-          {metaLinks.map(link =>
-            <li><a href={link.url}>{link.text}</a></li>
-          )}
-        </ul>
-      </div>
-      <div class="site-footer__socials">
-        <ul>
-          {SOCIAlS.map(social =>
-            <li>
-              <a href={social.url}>
-                {social.iconName && <Icon name={social.iconName}/>}
-                {social.platform}
-              </a>
-            </li>
-          )}
-        </ul>
-      </div>
-    </nav>
+  <nav>
+    <div class="site-footer__socials">
+      <ul>
+        {SOCIAlS.map(social =>
+          <li>
+            <a href={social.url}>
+              {social.iconName && <Icon name={social.iconName}/>}
+              {social.platform}
+            </a>
+          </li>
+        )}
+      </ul>
+    </div>
+  </nav>
+  <div class="site-footer__bottom">
+    <p>Made with :emoji: by {SITE.author.name}</p>
   </div>
 </footer>
 
@@ -52,7 +30,9 @@ const metaLinks: NavLink[] = [
     .site-footer {
       padding:
         var(--space-s)
-        max(var(--space-s-l), calc((100% - var(--max-wrapper-width)) / 2));
+        var(--wrapper-pad-inline);
+      background: var(--clr-neutral-800);
+      color: var(--clr-neutral-100);
 
       nav ul {
         list-style-type: none;
@@ -70,6 +50,12 @@ const metaLinks: NavLink[] = [
         vertical-align: top;
         height: 1.25em;
       }
+    }
+
+    .site-footer__bottom {
+      text-align: end;
+      margin-block-start: var(--space-2xs);
+      font-size: var(--fs--1);
     }
   }
 </style>
