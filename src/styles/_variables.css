@@ -14,6 +14,7 @@
 	--clr-neutral-900: oklch(20.5% 0 0deg);
 	--clr-neutral-950: oklch(14.5% 0 0deg);
 	--clr-black: #000;
+	--clr-green: oklch(0.9365 0.187 123.25 / 0.75);
 }
 
 /* || SEMANTIC COLOR VARIABLES */
@@ -41,9 +42,9 @@
 
 :root {
 	--ff-display: var(--font-boldonse), sans-serif;
-	--ff-sans: sans-serif;
+	--ff-sans: var(--font-atkinson), sans-serif;
 	--ff-serif: serif;
-	--ff-mono: mono;
+	--ff-mono: var(--font-space-mono), mono;
 }
 
 /* || BREAKPOINTS */

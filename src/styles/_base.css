@@ -2,8 +2,16 @@
 	font-family: var(--ff-sans);
 }
 
+code,
+pre,
+tt,
+kbd,
+samp {
+	font-family: var(--ff-mono);
+}
+
 ::selection {
-	background-color: oklch(0.9365 0.187 123.25 / 0.75);
+	background-color: oklch(from var(--clr-green) l c h / 0.75);
 	color: var(--clr-text);
 }
 

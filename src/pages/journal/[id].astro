@@ -17,15 +17,23 @@ const { Content } = await render(post);
   <nav class="journal-nav">
     <a href="/">&leftarrow; Go home</a>
   </nav>
-  <main class="journal-article">
+  <main class="journal-page">
     <article>
       <header>
         <p class="timestamp">Week {post.data.week} | <time datetime={post.data.pubDate.toLocaleDateString()}>{format(post.data.pubDate, "MMM dd, y")}</time></p>
         <h1>{post.data.title}</h1>
       </header>
-      <Content />
+      <main>
+        <Content />
+      </main>
     </article>
   </main>
+  <footer class="journal-footer">
+    <p>week {post.data.week} | {post.data.title}</p>
+    <nav class="journal-nav">
+      <a href="/">&leftarrow; Go home</a>
+    </nav>
+  </footer>
 </BaseLayout>
 
 
@@ -38,7 +46,7 @@ const { Content } = await render(post);
       }
     }
 
-    .journal-article {
+    .journal-page {
 
       header {
         margin-block-end: var(--space-l-xl);
@@ -56,6 +64,60 @@ const { Content } = await render(post);
         color: var(--clr-text-secondary);
         text-transform: uppercase;
       }
+    }
+
+    .journal-page article main {
+      h1 {
+        font-size: var(--fs-3);
+      }
+      h2 {
+        font-size: var(--fs-2);
+      }
+      h3 {
+        font-size: var(--fs-1);
+      }
+      h4, h5, h6 {
+        font-size: var(--fs-0);
+      }
+
+      code, pre, tt, samp {
+        font-size: 0.9em;
+      }
+
+      p > code {
+        background-color: var(--clr-neutral-200);
+        padding: 0.1em 0.5em;
+        margin-inline: 0.1em;
+        border-radius: 0.25em;
+      }
+
+      img, figure, video {
+        max-width: 100%;
+        height: auto;
+        place-self: center;
+      }
+
+      .astro-code {
+        padding: var(--space-xs-s);
+      }
+    }
+
+    .journal-page article main {
+      * + * {
+        margin-block-start: var(--space-s-m);
+
+        &:is(h1, h2, h3, h4, h5, h6) {
+          font-weight: 700;
+          margin-block-start: var(--space-m-l);
+        }
+      }
+    }
+
+    .journal-footer {
+      font-size: var(--fs--1);
+      text-transform: uppercase;
+      text-align: end;
+      padding-block: var(--space-xl);
     }
   }
 </style>

@@ -27,6 +27,8 @@ const { pageTitle, description } = Astro.props;
 		<style is:inline>
 			@layer variables, reset, themes, animations, base, components;
 		</style>
+		<Font cssVariable="--font-space-mono" preload/>
+		<Font cssVariable="--font-atkinson" preload/>
 		<Font cssVariable="--font-boldonse" preload/>
 	</head>
 	<body>

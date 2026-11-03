@@ -1,8 +1,8 @@
 ---
-title: Week 3
-description: Python basics and all that fuss
+title: Data Science 💀
 pubDate: 2026-10-30
 week: 3
+draft: true
 ---
 
-What is the up my doods
+We're finally getting to

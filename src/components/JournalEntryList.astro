@@ -33,11 +33,11 @@ journalEntries.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(
     }
 
     .journal-entry {
-      padding: var(--space-xs) var(--space-s-m);
+      padding: var(--space-s) var(--space-s-m);
       border: var(--clr-neutral-300) solid 1.5px;
       position: relative;
       isolation: isolate;
-      transition: border 100ms ease;
+      transition: background, border;
 
       .journal-entry__title {
         font-size: var(--fs-0);
@@ -51,6 +51,7 @@ journalEntries.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(
       
       &:hover {
         border-color: var(--clr-neutral-800);
+        background-color: var(--clr-neutral-50);
       }
       
       &:not(:hover) {

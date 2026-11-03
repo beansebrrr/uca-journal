@@ -1,2 +1,4 @@
 allowBuilds:
   lefthook: true
+minimumReleaseAgeExclude:
+  - astro@7.4.5
