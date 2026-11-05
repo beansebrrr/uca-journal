@@ -2,6 +2,9 @@
 title: Python Basics and all that Fuss
 pubDate: 2026-10-17
 week: 1
+links:
+  - label: Go to repository
+    href: https://github.com/beansebrrr/uca-aic-notebooks/tree/main/week-01
 ---
 
 It's my first week of studying at the University for the Creative Arts! I'm currently taking two modules as of the moment; but for this post, I'm going to focus solely on **Artificial Intelligence for Creativity**.

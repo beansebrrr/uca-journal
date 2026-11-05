@@ -2,6 +2,9 @@
 title: Colors, Images, and Filters !!!
 pubDate: 2026-10-23
 week: 2
+links:
+  - label: Go to repository
+    href: https://github.com/beansebrrr/uca-aic-notebooks/tree/main/week-02
 ---
 
 Last week, we learned about the basics of Python, and a little bit of `numpy` and `matplotlib`. This week, we're going to get a lot more use out of the `numpy` library. This topic is going to tackle how information is stored in images, and how we can use that to our advantage.

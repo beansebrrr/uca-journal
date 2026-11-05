@@ -22,6 +22,16 @@ const { Content } = await render(post);
       <header>
         <p class="timestamp">Week {post.data.week} | <time datetime={post.data.pubDate.toLocaleDateString()}>{format(post.data.pubDate, "MMM dd, y")}</time></p>
         <h1>{post.data.title}</h1>
+
+        
+        {post.data.links && (
+          <ul class="links-list">
+            {post.data.links.map(link => 
+              <li><a href={link.href} target="_blank" rel="noopener noreferrer">{link.label}</a></li>
+            )}
+          </ul>
+        )}
+        
       </header>
       <main>
         <Content />
@@ -63,6 +73,12 @@ const { Content } = await render(post);
         font-size: var(--fs--1);
         color: var(--clr-text-secondary);
         text-transform: uppercase;
+      }
+
+      .links-list {
+        list-style: none;
+        padding: 0;
+        margin-block: var(--space-xs);
       }
     }
 

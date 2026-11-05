@@ -30,6 +30,7 @@ export default defineConfig({
 			provider: fontProviders.fontsource(),
 			name: "Space Mono",
 			cssVariable: "--font-space-mono",
+			weights: ["400 700"],
 		},
 		{
 			provider: fontProviders.fontsource(),
