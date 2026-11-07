@@ -19,4 +19,16 @@ When you import a dataset into your Python project using `pandas`, it will gain 
 
 But what can we fill the blank cells with? Usually, we should probably fill it with the average value of the entire column. We can do that quite easily thanks to *DataFrame*s having methods for calculating their median and median. We'll be filling them in with the median this time around, since means can get very easily affected by outliers.
 
+---
 
+Now that we've cleaned up the dataset, we can move on to actually going through the data.
+
+There are many things we can do with this. We can use `pandas` to `.merge()` two databases together, we can add new *features*, or, you know, we can jump straight into creating graphics. 
+
+# Plotting
+
+We were introduced to a plethora of charts and graphs we can generate using `matplotlib` and `seaborn`. We've encountered histograms, scatterplots, boxplots, violin plots, heatmaps, and so much more. From what I see, `seaborn` focuses a lot more on charts and graphs, while `matplotlib` gives the programmer much more control on what to render in the first place.
+
+## A little extra treat with `plotly`
+
+`plotly` is another graphing library, and its main selling point is that, well, it already looks good. It supplies itself with pre-configured selection of charts and graphs we can choose from, and all we have to do is provide the data to it. It's generated as HTML, and is interactive right out of the box. 
