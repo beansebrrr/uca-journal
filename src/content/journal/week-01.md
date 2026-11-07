@@ -1,10 +1,13 @@
 ---
+
 title: Python Basics and all that Fuss
 pubDate: 2026-10-17
 week: 1
 links:
-  - label: Go to repository
-    href: https://github.com/beansebrrr/uca-aic-notebooks/tree/main/week-01
+
+- label: Go to repository
+  href: https://github.com/beansebrrr/uca-aic-notebooks/tree/main/week-01
+
 ---
 
 It's my first week of studying at the University for the Creative Arts! I'm currently taking two modules as of the moment; but for this post, I'm going to focus solely on **Artificial Intelligence for Creativity**.
@@ -15,7 +18,7 @@ This module---to the best of my understanding as of right now---is to tackle and
 
 This is a research and development journal that I'm going to be updating regularly as per the requirements of this subject. I'll be attaching files, references, and proof of my development as I continue studying in this field.
 
-I grouped up with *Jezriel Yap* to form the pair "*Jinx*." For the next few weeks, he and I will be working on the activities handed out to us for this subject.
+I grouped up with _Jezriel Yap_ to form the pair "_Jinx_." For the next few weeks, he and I will be working on the activities handed out to us for this subject.
 
 # What did we do today?
 
@@ -41,7 +44,7 @@ Deciding on the colors, we wanted to have strong reds and blues, imitating the c
 
 ## Moods
 
-There was an extra activity which we decided to take on: a mood-driven generator. We generate posters like earlier; but this time, the colors and the words displayed onto the canvas depends on the mood we type onto the terminal. 
+There was an extra activity which we decided to take on: a mood-driven generator. We generate posters like earlier; but this time, the colors and the words displayed onto the canvas depends on the mood we type onto the terminal.
 
 We began by defining some more moods like `silly` and `angry`, so that it won't just be the already-provided `calm`. Each mood contains its own set of words, and parameters of what colors will be generated. `silly` has lots of yellow and greens, while `angry` contains a lot of reds and oranges.
 

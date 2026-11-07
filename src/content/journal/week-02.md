@@ -1,10 +1,13 @@
 ---
+
 title: Colors, Images, and Filters !!!
 pubDate: 2026-10-23
 week: 2
 links:
-  - label: Go to repository
-    href: https://github.com/beansebrrr/uca-aic-notebooks/tree/main/week-02
+
+- label: Go to repository
+  href: https://github.com/beansebrrr/uca-aic-notebooks/tree/main/week-02
+
 ---
 
 Last week, we learned about the basics of Python, and a little bit of `numpy` and `matplotlib`. This week, we're going to get a lot more use out of the `numpy` library. This topic is going to tackle how information is stored in images, and how we can use that to our advantage.
@@ -13,7 +16,7 @@ Last week, we learned about the basics of Python, and a little bit of `numpy` an
 
 Last week, we've established that a color's information can be stored in the form of 3 values representing the intensity of red, green, and blue (RGB) in said color.
 
-In the context of images, we can treat this singular color as a *pixel*. If we put multiple pixels together as an *array*, it would look like a row of colors. Now if we put multiple rows together, it could look like a grid.
+In the context of images, we can treat this singular color as a _pixel_. If we put multiple pixels together as an _array_, it would look like a row of colors. Now if we put multiple rows together, it could look like a grid.
 
 ```py
 """Just try to imagine it for now:
@@ -46,7 +49,7 @@ image = np.array(
 print(image[0, 0])
 ```
 
-Assuming you have an `example.png` ready to be loaded, running this program is going to convert the image into a two-dimensional array, ready to be read. It then reads the contents of the pixel positioned at `0, 0` (the very top left). This will return an *array* of 3 values corresponding to their RGB values respectively
+Assuming you have an `example.png` ready to be loaded, running this program is going to convert the image into a two-dimensional array, ready to be read. It then reads the contents of the pixel positioned at `0, 0` (the very top left). This will return an _array_ of 3 values corresponding to their RGB values respectively
 
 ```py
 # [red, green, blue]
@@ -89,4 +92,4 @@ sepia_matrix = np.array([
 sepia_image = np.clip(image @ sepia_matrix.T, 0, 255)
 ```
 
-With that, we have implemented a sepia filter using `numpy`! (wow *\*round of applause\**)
+With that, we have implemented a sepia filter using `numpy`! (wow _\*round of applause\*_)
